@@ -2,5 +2,14 @@
     <string name="app_name">planktrzon</string>
     <string name="LogIn">Logowanie</string>
     <string name="Goin">Kontynuuj bez logowania</string>
+    <string name="Title">Tytuł plakatu</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus, urna ac euismod feugiat, lacus ipsum pellentesque nisi, sit amet vehicula velit diam venenatis justo. Sed eleifend lorem eu ullamcorper ornare. Pellentesque in pharetra orci. Ut semper risus a nisi ullamcorper eleifend. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut sit amet sem risus. Cras porta, mi sed cursus aliquam, ligula sem malesuada leo, at dictum dolor libero eget est. Nam volutpat dui non lectus eleifend, ac dignissim libero commodo. </string>
+    <string name="City">Miasto</string>
+    <string name="address">Jakś ulica 16</string>
+    <string name="Date">00-00-0000</string>
+    <string name="DescriptionButton">Wiecej informacji</string>
+    <string name="Facebook">Facebook</string>
+    <string name="Ticket">Kup bilet</string>
     <string name="checkConnection">Problem z połączeniem internetowym. Spróbuj ponownie za chwilę</string>
+
 </resources>
