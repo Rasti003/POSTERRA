@@ -69,7 +69,18 @@ public class MyPosterAdapter extends RecyclerView.Adapter {
     public void GoToFragment(Poster poster){
         Fragment fragment = new PosterFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("NAZWA", poster.get_name());
+        bundle.putString("NAME", poster.get_name());
+        bundle.putString("INFO", poster.get_info());
+        bundle.putString("CITY", poster.get_city());
+        bundle.putString("ADDRESS", poster.get_adress());
+        bundle.putString("START_DATE", poster.get_start_date());
+        bundle.putString("END_DATE", poster.get_end_date());
+        bundle.putString("START_TIME", poster.get_start_time());
+        bundle.putString("END_TIME", poster.get_end_time());
+        bundle.putString("IMG_URL", poster.get_imgURL());
+        bundle.putString("INFO_URL", poster.get_infoURL());
+        bundle.putString("FACEBOOK_URL", poster.get_facebookURL());
+        bundle.putString("TICKET_URL", poster.get_ticketURL());
         fragment.setArguments(bundle);
 
         FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
