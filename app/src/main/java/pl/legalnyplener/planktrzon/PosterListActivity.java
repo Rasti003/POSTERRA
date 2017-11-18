@@ -3,6 +3,8 @@ package pl.legalnyplener.planktrzon;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,6 +21,11 @@ public class PosterListActivity extends AppCompatActivity{
 
         Bundle data = getIntent().getExtras();
         ArrayList<Poster> posters = changeToPosterList(data.getString("data"));
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecyclerVievList);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.setAdapter(new MyPosterAdapter(this, posters, recyclerView));
     }
 
 
