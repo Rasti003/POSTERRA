@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Siigitlab.iml" filepath="$PROJECT_DIR$/Siigitlab.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sii.iml" filepath="$PROJECT_DIR$/sii.iml" />
+      <module fileurl="file://D:\stein\Siigitlab\app\app.iml" filepath="D:\stein\Siigitlab\app\app.iml" />
+      <module fileurl="file://D:\stein\Siigitlab\sii.iml" filepath="D:\stein\Siigitlab\sii.iml" />
     </modules>
   </component>
 </project>
