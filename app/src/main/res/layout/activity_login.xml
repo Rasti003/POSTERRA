@@ -8,6 +8,11 @@
     android:background="@color/colorPrimaryDark"
     tools:context="pl.legalnyplener.planktrzon.LoginActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/BackgroundRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <ImageView
         android:id="@+id/Logo"
         android:layout_width="wrap_content"
