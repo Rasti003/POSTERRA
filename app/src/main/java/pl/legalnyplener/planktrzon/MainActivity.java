@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,17 +17,25 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
     private String downloaded_data;
-    private boolean loaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         new PobierzPlakaty().execute();
+
     }
 
     public void GoInButtonClick(View view){
-        Intent intent = new Intent();
+        if(!downloaded_data.isEmpty()){
+            Intent intent = new Intent(this, PosterListActivity.class);
+            intent.putExtra("data", downloaded_data);
+            startActivity(intent);
+        }else {
+            Toast toast = Toast.makeText(this, R.string.checkConnection, Toast.LENGTH_SHORT);
+            toast.show();
+            new PobierzPlakaty().execute();
+        }
 
     }
 
@@ -39,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             downloaded_data = s;
-            loaded = true;
         }
 
         @Override
