@@ -1,12 +1,16 @@
 package pl.legalnyplener.planktrzon;
 
+
+
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void LogInButtonClick(View view){
-
     }
 
     public class PobierzPlakaty extends AsyncTask<Void, Void, String>{

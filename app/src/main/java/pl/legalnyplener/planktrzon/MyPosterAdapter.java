@@ -1,8 +1,13 @@
 package pl.legalnyplener.planktrzon;
 
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,13 +50,13 @@ public class MyPosterAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Poster poster = posters.get(position);
+        final Poster poster = posters.get(position);
         Picasso.with(context).load(String.valueOf(poster.get_imgURL())).error(R.drawable.picklerick_error).into(((MyPosterViewHolder) holder).posterImage);
 
         ((MyPosterViewHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                GoToFragment(poster);
             }
         });
     }
@@ -59,5 +64,18 @@ public class MyPosterAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return posters.size();
+    }
+
+    public void GoToFragment(Poster poster){
+        Fragment fragment = new PosterFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("NAZWA", poster.get_name());
+        fragment.setArguments(bundle);
+
+        FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.layout, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
