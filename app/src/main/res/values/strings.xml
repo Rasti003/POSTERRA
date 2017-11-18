@@ -10,6 +10,6 @@
     <string name="DescriptionButton">Wiecej informacji</string>
     <string name="Facebook">Facebook</string>
     <string name="Ticket">Kup bilet</string>
-
+    <string name="checkConnection">Problem z połączeniem internetowym. Spróbuj ponownie za chwilę</string>
 
 </resources>
