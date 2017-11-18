@@ -1,54 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/BacgroundAlpha">
+
+
+<android.support.constraint.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/PosterImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/picklerick_error"
-        tools:layout_editor_absoluteX="8dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/picklerick_error" />
 
     <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:id="@+id/Title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="10dp"
         android:text="@string/Title"
+        android:textColor="@color/TextColor"
         app:layout_constraintBottom_toTopOf="@+id/Description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PosterImage"
         app:layout_constraintVertical_bias="0.03" />
 
-
+<View
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
     <ImageView
         android:id="@+id/placeholder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/placeholder"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/Title" />
 
     <TextView
         android:id="@+id/City"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:text="@string/City"
+        android:textColor="@color/TextColor"
         app:layout_constraintStart_toEndOf="@+id/placeholder"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/Title" />
 
 
     <TextView
@@ -57,6 +74,7 @@
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:text="@string/address"
+        android:textColor="@color/TextColor"
         app:layout_constraintStart_toEndOf="@+id/placeholder"
         app:layout_constraintTop_toBottomOf="@+id/City" />
 
@@ -65,32 +83,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/calendar"
         app:layout_constraintEnd_toStartOf="@+id/Date"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/Title" />
 
     <TextView
         android:id="@+id/Date"
         android:layout_width="73dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="24dp"
         android:text="@string/Date"
+        android:textColor="@color/TextColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/Title" />
+
 
     <TextView
         android:id="@+id/Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="46dp"
+        android:background="@color/BacgroundBright"
+        android:padding="5dp"
         android:text="@string/lorem_ipsum"
+        android:textColor="@color/TextColorDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Address" />
+        app:layout_constraintTop_toBottomOf="@+id/Address"
+        android:elevation="10dp"/>
 
     <Button
         android:id="@+id/ButtonDescription"
@@ -102,11 +126,12 @@
         android:drawableLeft="@drawable/information"
         android:padding="5dp"
         android:text="@string/DescriptionButton"
+        android:textColor="@color/TextColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Description" />
 
     <Button
-        android:id="@+id/Ticket"
+        android:id="@+id/ButtonTicket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -116,12 +141,13 @@
         android:drawableLeft="@drawable/tickets"
         android:padding="5dp"
         android:text="@string/Ticket"
+        android:textColor="@color/TextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Facebook" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonFacebook" />
 
     <Button
-        android:id="@+id/Facebook"
+        android:id="@+id/ButtonFacebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -130,12 +156,16 @@
         android:background="@color/NonColor"
         android:drawableLeft="@drawable/facebook"
         android:text="@string/Facebook"
+        android:textColor="@color/TextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonDescription"
+        />
 
 
 
 
 
 </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

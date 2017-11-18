@@ -3,6 +3,10 @@
     <color name="colorPrimary">#a6a6a6</color>
     <color name="colorPrimaryDark">#4d4d4d</color>
     <color name="colorAccent">#e6b400</color>
-    <color name="BacgroundAlpha">#B34d4d4d</color>
+    <color name="BacgroundAlpha">#E64d4d4d</color>
     <color name="NonColor">#004d4d4d</color>
+    <color name="TextColor">#f2f2f2</color>
+    <color name="TextColorDark">#333333</color>
+    <color name="BacgroundBright">#e6e6e6</color>
+
 </resources>
