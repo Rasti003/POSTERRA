@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 import java.io.BufferedReader;
@@ -35,6 +36,14 @@ public class LoginActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(6, StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(new MyBackgroundAdapter(this, recyclerView));
+        recyclerView.getAdapter().notifyDataSetChanged();
+
+        recyclerView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return true;
+            }
+        });
 
     }
 
@@ -52,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void LogInButtonClick(View view){
+
     }
 
     public class PobierzPlakaty extends AsyncTask<Void, Void, String>{

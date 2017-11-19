@@ -8,13 +8,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-public class PosterFragment extends Fragment {
+public class PosterFragment extends Fragment  {
 
     ImageView PosterImage;
     Button ButtonFacebook;
@@ -81,6 +83,12 @@ public class PosterFragment extends Fragment {
         Address.setText(AddressText);
         Date.setText(DateText);
         Descryption.setText(DescryptionText);
+
+
+        WebView webview = (WebView) view.findViewById(R.id.webview);
+        webview.setWebViewClient(new WebViewClient());
+        webview.getSettings().setJavaScriptEnabled(true);
+        webview.loadUrl("URL");
 
 
 
