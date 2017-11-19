@@ -8,7 +8,8 @@ try {
 	$plakaty = array();
 	$stmt = $conn->query("SELECT ID_PLAKAT, NAZWA, OPIS, MIASTO, ADRES, DATA_POCZATEK,
 						DATA_KONIEC, GODZIN_POCZATEK, GODZINA_KONIEC, IMG_URL, INFO_URL,
-						FACEBOOK_URL, BILET_URL FROM PLAKAT");
+						FACEBOOK_URL, BILET_URL FROM PLAKAT 
+						ORDER BY DATA_POCZATEK, GODZIN_POCZATEK LIMIT 0 , 200");
 	
 	while(($result = $stmt->fetch(PDO::FETCH_NUM)) != null){
 			array_push($plakaty, array("ID_PLAKAT"=>$result[0],

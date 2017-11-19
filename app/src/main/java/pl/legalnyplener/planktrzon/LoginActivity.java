@@ -13,6 +13,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,6 +26,9 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
     private String downloaded_data;
+    private boolean mode;
+    Button goToLoginButton, goInButton, tryLoginButton;
+    EditText login, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         new PobierzPlakaty().execute();
 
+        mode = true;
+        goToLoginButton = (Button) findViewById(R.id.LoginButton);
+        goInButton = (Button) findViewById(R.id.GoInButton);
+        tryLoginButton = (Button) findViewById(R.id.LoginUser);
+        login = (EditText) findViewById(R.id.LoginEditText);
+        password = (EditText) findViewById(R.id.PasswordEditText);
 
         RecyclerView recyclerView = findViewById(R.id.BackgroundRecycler);
         recyclerView.setHasFixedSize(true);
@@ -61,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void LogInButtonClick(View view){
-
+        ChangeLogin();
     }
 
     public class PobierzPlakaty extends AsyncTask<Void, Void, String>{
@@ -98,6 +109,42 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             return data;
+        }
+    }
+
+    public void ChangeLogin(){
+        if(mode){
+            goToLoginButton.setVisibility(View.GONE);
+            goInButton.setVisibility(View.GONE);
+            tryLoginButton.setVisibility(View.VISIBLE);
+            login.setVisibility(View.VISIBLE);
+            password.setVisibility(View.VISIBLE);
+            mode = false;
+        }else {
+            goToLoginButton.setVisibility(View.VISIBLE);
+            goInButton.setVisibility(View.VISIBLE);
+            tryLoginButton.setVisibility(View.GONE);
+            login.setVisibility(View.GONE);
+            password.setVisibility(View.GONE);
+            mode = true;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(mode){
+            super.onBackPressed();
+        }else {
+            ChangeLogin();
+        }
+    }
+
+    public void logInUser(View view){
+        if(String.valueOf(login.getText()).equals("user") & String.valueOf(password.getText()).equals("pass")){
+            Intent intent = new Intent(this, PosterListActivity.class);
+            intent.putExtra("data", downloaded_data);
+            startActivity(intent);
+            finish();
         }
     }
 }

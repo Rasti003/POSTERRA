@@ -11,5 +11,8 @@
     <string name="Facebook">Facebook</string>
     <string name="Ticket">Kup bilet</string>
     <string name="checkConnection">Problem z połączeniem internetowym. Spróbuj ponownie za chwilę</string>
+    <string name="Login">Login</string>
+    <string name="Password">Hasło</string>
+    <string name="LoginUser">Zaloguj</string>
 
 </resources>
