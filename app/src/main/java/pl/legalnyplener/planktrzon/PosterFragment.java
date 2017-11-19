@@ -12,10 +12,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-
 public class PosterFragment extends Fragment  {
 
     ImageView PosterImage;
@@ -29,6 +29,9 @@ public class PosterFragment extends Fragment  {
     TextView City;
     TextView Address;
     TextView Date;
+    ImageView ButtonDate;
+    ImageView ButtonMap;
+    WebView Maps;
 
     String PosterImgUrl;
     String FacebookUrl;
@@ -41,7 +44,7 @@ public class PosterFragment extends Fragment  {
     String AddressText;
     String DescryptionText;
 
-
+ScrollView sv;
 
 
 
@@ -73,6 +76,8 @@ public class PosterFragment extends Fragment  {
         Address = (TextView) view.findViewById(R.id.Address);
         Date = (TextView) view.findViewById(R.id.Date);
         Descryption = (TextView)view.findViewById(R.id.Description);
+        Maps =(WebView)view.findViewById(R.id.Maps);
+
 
 
 
@@ -85,28 +90,66 @@ public class PosterFragment extends Fragment  {
         Descryption.setText(DescryptionText);
 
 
-        WebView webview = (WebView) view.findViewById(R.id.webview);
+        WebView webview = (WebView) view.findViewById(R.id.Maps);
         webview.setWebViewClient(new WebViewClient());
         webview.getSettings().setJavaScriptEnabled(true);
-        webview.loadUrl("URL");
 
-
+        webview.loadUrl("http://maps.google.com/maps?q="+AddressText+","+CityText+"&ui=maps");
 
 
 
         ButtonDescription  = (Button) view.findViewById(R.id.ButtonDescription);
         ButtonFacebook  = (Button) view.findViewById(R.id.ButtonFacebook);
         ButtonTicket  = (Button) view.findViewById(R.id.ButtonTicket);
-
+        ButtonDate = (ImageView)view .findViewById(R.id.Calendar);
+        ButtonMap = (ImageView)view .findViewById(R.id.placeholder);
         HidingButtons(ButtonFacebook, ButtonTicket ,ButtonDescription);
+        sv = ((ScrollView) view.findViewById(R.id.scrollView));
+
+        ButtonMap.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View view) {
+
+                Maps.setVisibility(View.VISIBLE);
+               // final ScrollView scrollview = ((ScrollView) view.findViewById(R.id.scrollView));
+
+
+                sv.smoothScrollBy(0,7000);
+
+            }
+        });
+
+        ButtonDate.setOnClickListener(new View.OnClickListener() {
+
+    public void onClick(View view) {
+
+
+
+        Intent intent = new Intent(Intent.ACTION_EDIT);
+        intent.setType("vnd.android.cursor.item/event");
+        intent.putExtra("title", TitleText);
+        intent.putExtra("description", "Wydarzenie dodane z aplikacji POSTERRA");
+
+
+        startActivity(intent);
+
+
+    }
+});
+
+
 
 
         ButtonDescription.setOnClickListener(new View.OnClickListener() {
 
+
+
             public void onClick(View view) {
+
                 Intent iDescryption = new Intent(Intent.ACTION_VIEW,
                         Uri.parse(DescryptionUrl));
-                startActivity(iDescryption);
+               startActivity(iDescryption);
 
             }
         });
