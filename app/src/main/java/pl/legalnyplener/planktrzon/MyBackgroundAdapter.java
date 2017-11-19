@@ -58,7 +58,7 @@ public class MyBackgroundAdapter extends RecyclerView.Adapter{
 
     @Override
     public int getItemCount() {
-        return 48;
+        return 52;
     }
 
 
