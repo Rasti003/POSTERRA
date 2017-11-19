@@ -1,4 +1,4 @@
-package pl.legalnyplener.planktrzon;
+package pl.legalnyplener.POSTERRA;
 
 
 import android.app.Fragment;
@@ -22,6 +22,7 @@ public class PosterFragment extends Fragment  {
     Button ButtonFacebook;
     Button ButtonTicket;
     Button ButtonDescription;
+    Button ButtonShare;
 
 
     TextView Descryption;
@@ -81,6 +82,7 @@ ScrollView sv;
 
 
 
+
         Picasso.with(getActivity()).load(String.valueOf(PosterImgUrl)).error(R.drawable.picklerick_error).into(PosterImage);
 
         Title.setText(TitleText);
@@ -101,10 +103,30 @@ ScrollView sv;
         ButtonDescription  = (Button) view.findViewById(R.id.ButtonDescription);
         ButtonFacebook  = (Button) view.findViewById(R.id.ButtonFacebook);
         ButtonTicket  = (Button) view.findViewById(R.id.ButtonTicket);
+        ButtonShare = (Button) view.findViewById(R.id.Share);
         ButtonDate = (ImageView)view .findViewById(R.id.Calendar);
         ButtonMap = (ImageView)view .findViewById(R.id.placeholder);
         HidingButtons(ButtonFacebook, ButtonTicket ,ButtonDescription);
         sv = ((ScrollView) view.findViewById(R.id.scrollView));
+
+
+        ButtonShare.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT,"Zobacz co znalazłem w POSTERRA. "+" Data rozpoczęcia "+ DateText+" "+PosterImgUrl);
+
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
 
         ButtonMap.setOnClickListener(new View.OnClickListener() {
 
@@ -115,8 +137,7 @@ ScrollView sv;
                // final ScrollView scrollview = ((ScrollView) view.findViewById(R.id.scrollView));
 
 
-                sv.smoothScrollBy(0,7000);
-
+                sv.fullScroll(sv.FOCUS_DOWN);
             }
         });
 

@@ -1,10 +1,7 @@
-package pl.legalnyplener.planktrzon;
+package pl.legalnyplener.POSTERRA;
 
 
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;

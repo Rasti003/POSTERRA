@@ -1,4 +1,4 @@
-package pl.legalnyplener.planktrzon;
+package pl.legalnyplener.POSTERRA;
 
 import org.junit.Test;
 
