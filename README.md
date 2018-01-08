@@ -4,3 +4,7 @@
 
 The application concept assumes collecting and displaying information about events.
 In order to reduce the need for printing paper posters. Application shows basic information about events and allows sharing the posters.
+
+
+
+![Screenshot1](https://raw.githubusercontent.com/Rasti003/POSTERRA/master/Screenshot_1.png)
